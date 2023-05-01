@@ -35,8 +35,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'blog.apps.BlogConfig',
     'crispy_forms',
-    # 'django.contrib.admin',
-    'django.contrib.admin.apps.SimpleAdminConfig',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -78,10 +77,28 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+NAME = os.environ.get('PGDATABASE')
+PGPASSWORD = os.environ.get('PGPASSWORD')
+PGPORT = os.environ.get('PGPORT')
+PGHOST = os.environ.get('PGHOST')
+PGUSER = os.environ.get('PGUSER')
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST':PGHOST,
+        'PASSWORD':PGPASSWORD,
+        'PORT':PGPORT,
+        'USER':PGUSER,
+        'NAME':NAME
     }
 }
 
@@ -116,7 +133,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

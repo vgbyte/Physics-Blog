@@ -1,0 +1,14 @@
+railway login
+railway link abd2d07e-e89f-4aa0-8ace-718f9b3b0521
+railway status
+railway run python manage.py makemigrations
+railway run python manage.py migrate
+railway run python manage.py createsuperuser
+railway run python manage.py shell
+
+railway run python manage.py migrate --run-syncdb
+
+
+https://docs.railway.app/develop/cli
+https://stackoverflow.com/questions/73843151/how-to-run-commands-in-cli-with-railway-app
+https://railway.app/project/3481ba88-53ab-42de-a7ef-ce7d350072dd/service/d2c81e72-a1c1-42c2-a227-df85734f37f0
